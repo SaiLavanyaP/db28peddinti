@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Sai Lavanya Peddinti 
+  button(type="button", class="btn btn-primary", onclick="update()") Press Me for the contents
+  |
+  div(id="target") Display
+
+  a(href = '/Dog') Dog Page link
+  |
+  script. 
+    let client_count = 0;
+    function update() {
+      client_count = client_count + 1;
+      document.getElementById("target").innerHTML = `Value now ${client_count}`  ;
+      }

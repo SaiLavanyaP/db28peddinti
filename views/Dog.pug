@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h1= title
+  p Search results for Dog 
+  p 
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let Dog = [
+                    {
+                        "Brand": "GoldenRetriver",
+                        "price": 100,
+                        "color": "Gold"
+                    },
+                    {
+                        "Brand": "GermanShepard",
+                        "price": 200,
+                        "color": "Black"
+                    },
+                    {
+                        "Brand": "BullDog",
+                        "price": 300,
+                        "color": "Brown"
+                    },                   
+                ]
+            each v,index in Dog 
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Brand}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.price}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.color}
+  Script.
+         function buy(intemNo) 
+        {
+             alert (`Your order ${intemNo+1}`)
+        }
