@@ -1,8 +1,15 @@
 var dog = require('../models/dog');
 // List of all dog
-exports.dog_list = function(req, res) {
- res.send('NOT IMPLEMENTED: dog list');
-};
+exports.dog_list = async function(req, res) {
+    try{
+    thedog = await dog.find();
+    res.send(thedog);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+   };
 // for a specific dog.
 exports.dog_detail = function(req, res) {
  res.send('NOT IMPLEMENTED: dog detail: ' + req.params.id);
