@@ -6,3 +6,51 @@ body {
 a {
   color: #00B7FF;
 }
+.costumeAttr { 
+  background-color: rgb(91, 192, 158); 
+  width: 120px;
+    margin: 6px;
+    text-align: center;
+    color: white;
+    padding: 7px;
+    border-radius: 5px;
+    font-weight:normal;
+  
+  }
+  
+  .nameone {
+    width: 150px;
+    margin: 6px;
+    text-align: center;
+    padding: 7px;
+    border-radius: 5px;
+    font-weight:normal;
+  
+  }
+  
+  #titlestyle{
+    color: #6de6c7;
+    font-weight: 500;
+    font-family:'Times New Roman', Times, serif;
+    text-decoration:solid;
+  }
+  
+  .variety{
+    margin-right: 4px;
+    margin-bottom: 0;
+    padding: 7px;
+    justify-content:center;
+    font-weight: bold;
+    border-bottom: 3px solid rgb(126, 7, 206);
+    border-left: 3px solid  rgb(140, 233, 18);
+    background-color: rgb(120, 170, 120);
+    border-radius: 3px;
+  }
+  .stylesheetnew{
+      border-top: 3px solid rgb(11, 67, 151);
+      width: 60%;
+  }
+  .variety:hover{
+    background-color: rgb(204, 185, 197);
+    color: rgb(35, 37, 39);
+  }
