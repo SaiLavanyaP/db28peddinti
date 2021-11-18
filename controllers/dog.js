@@ -43,10 +43,21 @@ exports.dog_create_post = async function(req, res) {
     res.send(`{"error": ${err}}`);
     }
    };
-// Handle dog delete form on DELETE.
-exports.dog_delete = function(req, res) {
- res.send('NOT IMPLEMENTED: dog delete DELETE ' + req.params.id);
-};
+// Handle fan delete form on DELETE.
+//exports.fan_delete = function (req, res) {
+  //res.send("NOT IMPLEMENTED: fan delete DELETE " + req.params.id);
+//};
+exports.dog_delete = async function(req, res) { 
+    console.log("delete "  + req.params.id) 
+    try { 
+        result = await fan.findByIdAndDelete( req.params.id) 
+        console.log("Removed " + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": Error deleting ${err}}`); 
+    } 
+  };
 // Handle dog update form on PUT.
 exports.dog_update_put = async function(req, res) {
  console.log(`update on id ${req.params.id} with body
