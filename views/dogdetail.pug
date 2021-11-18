@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1(id="titlestyle")= title
+
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let dogid = toShow._id
+    - let dogBrand = toShow.Brand
+    - let dogprice = toShow.price
+    - let dogcolor = toShow.color
+
+    div
+      div.row
+        div(class='dogAttr mr-3') dog ID is:
+        div(class='variety stylesheetnew') #{dogid}
+      div.row
+        div(class='dogAttr mr-3') dog Brand is:
+        div(class="variety") #{dogBrand}
+      div.row
+        div(class='dogAttr mr-3') dog price is:
+        div(class="variety") #{dogprice}
+      div.row
+        div(class='dogAttr mr-3') dog color is:
+        div(class="variety") #{dogprice}
