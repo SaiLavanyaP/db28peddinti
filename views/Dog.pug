@@ -1,36 +1,22 @@
 extends layout
 
 block content
+
   h1= title
- - let dog = results
-  p Search results for Dog 
-  p 
-  div(class="container-fluid")
-        div(class="row")
-            -
-                let Dog = [
-                    {
-                        "Brand": "GoldenRetriver",
-                        "price": 100,
-                        "color": "Gold"
-                    },
-                    {
-                        "Brand": "GermanShepard",
-                        "price": 200,
-                        "color": "Black"
-                    },
-                    {
-                        "Brand": "BullDog",
-                        "price": 300,
-                        "color": "Brown"
-                    },                   
-                ]
-            each v,index in Dog 
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Brand}
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.price}
-                div(class="col-sm-2" onclick=`buy(${index})`) #{v.color}
-  Script.
-         function buy(intemNo) 
-        {
-             alert (`Your order ${intemNo+1}`)
-        }
+  - let array=[{"Brand":"Bulldog","price":14,"color":"red"},{"Brand":"Golden retriver","price":17,"color":"green"},{"Brand":"amul dog","price":20,"color":"orange"}]
+  - let items = results
+   div(class="container-fluid")
+    div(class="row m-1")
+     each item in array
+      - let destination = `dispatch(\"/dog/update?id=${item._id}\")`
+      div(class="col-sm-4",class="m-l") Brand: #{item.Brand}
+      div(class="col-sm-4",class="m-l") price: #{item.price}
+      div(class="col-sm-4",class="m-l") price: #{item.color}
+        button.btn( class="btn-primary ml-1", onclick= destination) Update
+
+
+
+   script.
+     function dispatch(path){
+       window.location.href=path
+     }
