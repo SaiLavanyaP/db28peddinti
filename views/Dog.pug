@@ -1,22 +1,24 @@
 extends layout
 
 block content
-
+  - let create = `dispatch(\"dog/create\")`
+  button.btn(class="btn-primary m1-1", onclick=create) Create
   h1= title
-  - let array=[{"Brand":"Bulldog","price":14,"color":"red"},{"Brand":"Golden retriver","price":17,"color":"green"},{"Brand":"amul dog","price":20,"color":"orange"}]
-  - let items = results
-   div(class="container-fluid")
-    div(class="row m-1")
-     each item in array
-      - let destination = `dispatch(\"/dog/update?id=${item._id}\")`
-      div(class="col-sm-4",class="m-l") Brand: #{item.Brand}
-      div(class="col-sm-4",class="m-l") price: #{item.price}
-      div(class="col-sm-4",class="m-l") price: #{item.color}
-        button.btn( class="btn-primary ml-1", onclick= destination) Update
-
-
-
+  - let dog=results;
+  div(class="container-fluid mt-3")
+   div(class="row m-1")
+    each element in dog
+     - let destination=`buy(\"/dog/update?id=${element._id}\")`
+     - let detail=`buy(\"/dog/detail?id=${element._id}\")`
+     - let del=`buy(\"/dog/delete?id=${element._id}\")`
+     div(class="col-sm-6 bg-secondary m-1 p-3") Dog #{element.Brand} - #{element.price} - #{element.color}
+      button.btn( class="btn-info ml-2", onclick=destination ) Update
+      button.btn( class="btn-dark ml-2", onclick=detail ) Get Detail
+      button.btn( class="btn-warning ml-2", onclick=del ) Delete
+  
    script.
-     function dispatch(path){
-       window.location.href=path
-     }
+    function buy(path){
+        window.location.href=path
+
+        //alert(`You purchased Item ${a+1}`)
+      }

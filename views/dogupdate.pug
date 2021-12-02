@@ -15,16 +15,16 @@ block content
       div.mr-1 ID is
       div #{dogid}
     - let actionid = "/resource/dog/" + dogid
-    form(id='dogForm', action= actionid, method="PUT" class= 'variety')
+    form(id='dogForm', action= actionid, method="PUT")
       div.form-group
-          label.dogAttr(for='dogBrand') dog Brand
-          input#Brand(type='text', name='dogBrand', value= dogBrand )
+          label.dogAttr(for='Brand') dog Brand
+          input#Brand(type='text', name='Brand', value= dogBrand )
       div.form-group
-          label.dogAttr(for='dogprice') dog price
-          input#price(type='number', name='dogprice', value= dogprice )
+          label.dogAttr(for='price') dog price
+          input#price(type='number', name='price', value= dogprice )
       div.form-group
-          label.dogAttr(for='dogcolor') dog color
-          input#color(type='text', name='dogcolor', value= dogcolor )
+          label.dogAttr(for='color') dog color
+          input#color(type='text', name='color', value= dogcolor )
       input(type="submit")
 
   script.
@@ -36,7 +36,7 @@ block content
         method: 'PUT',
         body: new URLSearchParams(new FormData(event.target)) // event.target is the form
       }).then((resp) => {
-        return resp.text(); // or resp.text() or whatever the server sends
+        return resp.json(); // or resp.text() or whatever the server sends
       }).then((body) => {
         alert("Update succeded")
         // TODO handle body
